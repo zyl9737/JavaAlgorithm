@@ -9,24 +9,6 @@ import me.icemoon.tools.TreeNode;
  */
 public class _0104_maxDepth {
     public int maxDepth(TreeNode root) {
-        if (root == null) return 0;
-        int l_depth = maxDepth(root.left);
-        int r_depth = maxDepth(root.right);
-        return Math.max(l_depth, r_depth) + 1;
-    }
-
-    private int ans;
-
-    public int maxDepth2(TreeNode root) {
-        dfs(root, 0);
-        return ans;
-    }
-
-    private void dfs(TreeNode node, int depth) {
-        if (node == null) return;
-        depth++;
-        ans = Math.max(ans, depth);
-        dfs(node.left, depth);
-        dfs(node.right, depth);
+       return root == null ? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 }
