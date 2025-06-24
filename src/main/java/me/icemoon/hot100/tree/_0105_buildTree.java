@@ -1,0 +1,36 @@
+package me.icemoon.hot100.tree;
+
+import me.icemoon.tools.TreeNode;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author Yulong
+ * @create 2025/6/24
+ * @description
+ */
+public class _0105_buildTree {
+
+    private int[] preorder;
+    private Map<Integer, Integer> d = new HashMap<>();
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int n = preorder.length;
+        this.preorder = preorder;
+        for (int i = 0; i < n; i++) {
+            d.put(inorder[i], i);
+        }
+        return dfs(0, 0, n);
+    }
+
+    private TreeNode dfs(int i, int j, int n) {
+        if (n <= 0) return null;
+        int v = preorder[i];
+        int k = d.get(v);
+        TreeNode l = dfs(i + 1, j, k - j);
+        TreeNode r = dfs(i + 1 + k - j, k + 1, n - 1 - (k - j));
+        return new TreeNode(v, l, r);
+    }
+
+}
