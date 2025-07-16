@@ -1,4 +1,4 @@
-package me.icemoon.hot100.two_point;
+package me.icemoon.hot100.two_pointer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

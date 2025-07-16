@@ -1,4 +1,4 @@
-package me.icemoon.hot100.two_point;
+package me.icemoon.hot100.two_pointer;
 
 public class _0011_MaxArea {
 
