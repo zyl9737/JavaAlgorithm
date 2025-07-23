@@ -1,0 +1,20 @@
+package me.icemoon.hot100.trick;
+
+/**
+ * @author Yulong
+ * @create 2025/7/22
+ * @description
+ */
+public class _0169_majorityElement {
+    public int majorityElement(int[] nums) {
+        int cnt = 0;
+        int candidate = 0;
+        for (int num : nums) {
+            if (cnt == 0) {
+                candidate = num;
+            }
+            cnt += (num == candidate) ? 1 : -1;
+        }
+        return candidate;
+    }
+}
